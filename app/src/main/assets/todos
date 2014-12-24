@@ -1,0 +1,72 @@
+Launch todos:
+1. save proguard file
+2. enable release mode
+3. update version number
+4 .
+
+
+
+
+
+
+
+
+
+
+//1. get list of installed apps( system + user apps)
+//2. get app name from package name
+//3. choose db structure
+
+	PackageInfoAndLockStatusTable
+	
+	packageName(pid) , appName , lockStatus , bitmap
+
+//4. store and retrieve bitmap from a db
+//5. add more events for broadcast receiver to cancel alarm..eg. screen off
+//6. remove an activity from recent activities list
+//7. launch home screen not working for some phones
+
+
+
+SYSTEM
+
+New DBs
+1.show tabs for system/user/protected/unprotected apps.
+
+
+after 3rd wrong pwd attempt take photo of attacker
+Prevent this app from being uninstalled
+after screen on button lock doesn't appear
+//get feedback.....integrate with parse.com
+//8. Unable to start service Intent { flg=0x4 cmp=com.example.broadcastreceiver/com.example.services.MyBackupUpdateService (has extras) } U=0: not found
+//10. integrate crashlytics
+9. find system apps and user apps and design views...check if system apps can be locked
+10. killing service explicitly brings memory usage from 120 mb to 6 mb..so do it manually after 10 hrs or so.
+
+
+UI
+** move from listview to normal views: reason: views on being on clicked when little dragged,coz listview takes the control 
+//add croxx button in edittexts
+show locked apps first
+show alphabet when list scrolled
+About Us
+NAvigation drawer OR menudrawer
+like us on facebook
+//rate my app
+//share my app feature
+//9. draw set pwd screen
+//12. add app icons
+//14. change pwd feature
+//15. type current pwd before you can change pwd
+//17. 1st time open app
+11. show input keyboard auto for all edittexts..issue in entering pwd at homepage
+10.show already locked apps first in listview AND sort rest of them
+11. add switch for API 11+
+//12. add autosuggest feature for search
+16. proguard
+18. launch for other languages
+20.do we really need to remove uninstalled pkgs from our db..in case app is reinstalled user should see it as locked
+
+//21. remove this app from unlock apps list
+//22.ads in passwrod screen
+//23. add progress bar to splash

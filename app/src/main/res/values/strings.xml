@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">AppLock</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_change_pwd">Change Password</string>
+    <string name="error_enter_correct_pwd">Please enter correct password.</string>
+    <string name="error_no_apps_installed">You dont have any apps installed.</string>
+    <string name="wrong_password">Passwords do not match.Sorry</string>
+    <string name="share">Share</string>
+    <string name="rate_applock">Rate AppLock</string>
+    <string name="feedback">Give Feedback</string>
+    <string name="ok">OK</string>
+    <string name="welcome_set_initial_pwd">Welcome to applock.\nPlease set your initial your password</string>
+    <string name="app_title">AppLock makes it easy to lock and prevent your apps.</string>
+    <string name="enter_new_password">Please enter your new password</string>
+    <string name="reset">Reset</string>
+    <string name="next">Continue</string>
+    <string name="confirm_new_password">Please confirm your new password</string>
+    <string name="save">Save</string>
+    <string name="enter_unlock_password">Please enter your password</string>
+    <string name="search_your_app">Search your app !!</string>
+    <string name="please_give_feedback">Please give us your precious feedback.</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="enter_current_password">Please enter your current password</string>
+    <string name="share_extra_text">https://play.google.com/store/apps/details?id=</string>
+    <string name="share_choose">Choose..</string>
+    <string name="share_extra_subject">Applock helps you prevent others from using your private and personal apps with a secured password.</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="refresh">Refresh</string>
+    <string name="cancel">Cancel</string>
+    <string name="upgrade_message">If you find AppLock useful,please consider upgrading to support future development</string>
+    <string name="upgrade_text">To remove ads ,get the ads free version,AppLockPro</string>
+    <string name="appname_with_space">App Lock</string>
+    <string name="title_activity_sss">sss</string>
+
+</resources>

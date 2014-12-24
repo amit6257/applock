@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.amitagarwal.applocks"
+    android:versionCode="10"
+    android:versionName="1.10" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--
+  IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
+  to match your app's package name + ".permission.C2D_MESSAGE".
+    -->
+    <permission
+        android:name="com.example.amitagarwal.applocks.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.amitagarwal.applocks.permission.C2D_MESSAGE" />
+
+    <!--<android:uses-permission-->
+        <!--android:name="android.permission.WRITE_EXTERNAL_STORAGE"-->
+        <!--android:maxSdkVersion="18" />-->
+    <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" />-->
+    <!--<android:uses-permission-->
+        <!--android:name="android.permission.READ_EXTERNAL_STORAGE"-->
+        <!--android:maxSdkVersion="18" />-->
+
+    <application
+        android:name="com.example.amitagarwal.applock.broadcastreceiver.LApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/lock"
+        android:label="App Lock" >
+
+         <meta-data
+         android:name="com.google.android.gms.version"
+         android:value="@integer/google_play_services_version" />
+        <!-- Start of Crittercism.com Code -->
+        <activity android:name="com.crittercism.NotificationActivity" />
+        <!-- End of Crittercism.com Code -->
+         <activity
+         android:name="com.google.android.gms.ads.AdActivity"
+         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.MySplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.UpgradeActivity"
+            android:theme="@android:style/Theme.Dialog" />
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.AppsListMainActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.PasswordScreen"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.WelcomeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity android:name="com.example.amitagarwal.applock.activity.FeedBackActivity" >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.SetPassFirstActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.SetPassConfirmationActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <receiver android:name="com.example.amitagarwal.applock.broadcastreceiver.MyBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.example.amitagarwal.applock.broadcastreceiver.MyBackupBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.example.amitagarwal.applock.services.MyUpdateService" >
+        </service>
+        <service android:name="com.example.amitagarwal.applock.services.MyBackupUpdateService" >
+        </service>
+
+        <!-- Parse push notification service and broadcastreceiver -->
+        <service android:name="com.parse.PushService" />
+
+        <receiver android:name="com.parse.ParseBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!-- IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
+                <category android:name="com.example.amitagarwal.applocks" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.sss"
+            android:label="@string/title_activity_sss" >
+        </activity>
+    </application>
+
+</manifest>
