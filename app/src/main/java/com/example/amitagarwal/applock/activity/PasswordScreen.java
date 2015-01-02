@@ -10,10 +10,13 @@ import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
 import com.example.amitagarwal.applock.broadcastreceiver.Constants;
+import com.example.amitagarwal.applock.utils.ActivityUtils;
+import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applock.utils.MathUtils;
 import com.example.amitagarwal.applock.utils.MyPreferenceManager;
 import com.example.amitagarwal.applock.views.CustomViewConstants;
 import com.example.amitagarwal.applock.views.MyCustomPasswordView;
+import com.example.amitagarwal.applock.views.PasswordEntered;
 import com.example.amitagarwal.applocks.R;
 
 public class PasswordScreen extends Activity implements OnClickListener {
@@ -24,8 +27,11 @@ public class PasswordScreen extends Activity implements OnClickListener {
 	private int buttonPressCount = 0;
 
 	private int passwordLength;
-
+    private PasswordEntered passwordEntered;
 	private int[] pwdEntered;
+    private int screenWidth;
+    private int screenHeight;
+    private int headerHeight ;
 	private int savedPassword[];	
 	private MyCustomPasswordView passwordView;
 
@@ -34,8 +40,11 @@ public class PasswordScreen extends Activity implements OnClickListener {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password_screen);
-
+        passwordEntered = new PasswordEntered(this);
 		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.password_screen);
+        headerHeight = ScreenMathUtils.dpToPx(20,this);
+        screenWidth = ActivityUtils.getWidthInPx(this);
+        screenHeight = ActivityUtils.getHeightInPx(this);
 
 		passwordView = new MyCustomPasswordView(this,this);
 		passwordScreen.addView(passwordView);

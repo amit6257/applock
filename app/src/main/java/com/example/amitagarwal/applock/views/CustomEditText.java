@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.broadcastreceiver.ScreenMathUtils;
+import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applock.utils.MyStringUtils;
 import com.example.amitagarwal.applocks.R;
 

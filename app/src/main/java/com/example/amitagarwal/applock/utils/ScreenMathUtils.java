@@ -1,9 +1,11 @@
-package com.example.amitagarwal.applock.broadcastreceiver;
+package com.example.amitagarwal.applock.utils;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.WindowManager;
+
+import com.example.amitagarwal.applock.broadcastreceiver.LApplication;
 
 public class ScreenMathUtils {
 
