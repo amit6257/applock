@@ -32,7 +32,7 @@ public class LApplication extends Application{
 		Parse.initialize(this, "ZX4q0t8Ff7NQ77swjygmGNoPTSKkk7WqRX2w2AKY", "tn2c1UGMKGElKNfxBLtlimnfeIhkb9g8wrImXb1m");
 		
 		//register with critterism
-		Crittercism.init(getApplicationContext(), ApplockConfigProvider.getCrittercismKey(getApplicationContext()));
+//		Crittercism.init(getApplicationContext(), ApplockConfigProvider.getCrittercismKey(getApplicationContext()));
 		
 		MyPreferenceManager.instance().initialize(appContext);
 

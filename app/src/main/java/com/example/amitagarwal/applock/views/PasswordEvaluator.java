@@ -1,7 +1,5 @@
 package com.example.amitagarwal.applock.views;
 
-import android.view.View;
-
 import com.example.amitagarwal.applock.activity.PasswordScreen;
 
 import java.util.ArrayList;
@@ -9,12 +7,12 @@ import java.util.ArrayList;
 /**
  * Created by amitagarwal on 1/1/15.
  */
-public class PasswordEntered{
+public class PasswordEvaluator {
 
     ArrayList<Figure> passwordEntered = new ArrayList<>();
     private PasswordScreen passwordScreen;
 
-    public PasswordEntered(PasswordScreen passwordScreen) {
+    public PasswordEvaluator(PasswordScreen passwordScreen) {
         this.passwordScreen = passwordScreen;
     }
 

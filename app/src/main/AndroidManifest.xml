@@ -52,7 +52,7 @@
          android:name="com.google.android.gms.ads.AdActivity"
          android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
         <activity
-            android:name="com.example.amitagarwal.applock.activity.MySplashActivity"
+            android:name="com.example.amitagarwal.applock.activity.TestActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar" >

@@ -16,7 +16,8 @@ import com.example.amitagarwal.applock.utils.MathUtils;
 import com.example.amitagarwal.applock.utils.MyPreferenceManager;
 import com.example.amitagarwal.applock.views.CustomViewConstants;
 import com.example.amitagarwal.applock.views.MyCustomPasswordView;
-import com.example.amitagarwal.applock.views.PasswordEntered;
+import com.example.amitagarwal.applock.views.PasswordEvaluator;
+import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 
 public class PasswordScreen extends Activity implements OnClickListener {
@@ -27,28 +28,27 @@ public class PasswordScreen extends Activity implements OnClickListener {
 	private int buttonPressCount = 0;
 
 	private int passwordLength;
-    private PasswordEntered passwordEntered;
+    private PasswordEvaluator passwordEvaluator;
 	private int[] pwdEntered;
-    private int screenWidth;
-    private int screenHeight;
-    private int headerHeight ;
+
 	private int savedPassword[];	
-	private MyCustomPasswordView passwordView;
+//	private MyCustomPasswordView passwordView;
+    private PasswordView passwordView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password_screen);
-        passwordEntered = new PasswordEntered(this);
+        passwordEvaluator = new PasswordEvaluator(this);
 		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.password_screen);
-        headerHeight = ScreenMathUtils.dpToPx(20,this);
-        screenWidth = ActivityUtils.getWidthInPx(this);
-        screenHeight = ActivityUtils.getHeightInPx(this);
 
-		passwordView = new MyCustomPasswordView(this,this);
-		passwordScreen.addView(passwordView);
 
+//		passwordView = new MyCustomPasswordView(this,this);
+//		passwordScreen.addView(passwordView);
+
+        passwordView = new PasswordView(this,passwordEvaluator);
+        passwordScreen.addView(passwordView);
 		//init vars
 		MyPreferenceManager.instance().initialize(PasswordScreen.this);
 		MathUtils.fillWithZeros(pwdEntered, passwordLength);
@@ -117,11 +117,11 @@ public class PasswordScreen extends Activity implements OnClickListener {
 		if(tag.equalsIgnoreCase(CustomViewConstants.DELETE)){
 			if(buttonPressCount == 0)
 				return;
-			passwordView.removeStarsFromPassword();
+//			passwordView.removeStarsFromPassword();
 			buttonPressCount --;
 			return;
 		}
-		passwordView.addStarsToPassword();
+//		passwordView.addStarsToPassword();
 		pwdEntered[buttonPressCount] = Integer.parseInt((String)v.getTag());
 
 		buttonPressCount ++;
