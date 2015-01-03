@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 /**
  * Created by amitagarwal on 1/1/15.
@@ -24,6 +25,10 @@ public class MyCustomButton extends Button implements View.OnClickListener{
         this.figure = figure;
         this.height = height;
         this.width = width;
+
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(width,height);
+        setLayoutParams(lp);
+        setOnClickListener(this);
 
         updateView();
     }

@@ -31,4 +31,9 @@ public class Figure {
     public void setColour(String colour) {
         this.colour = colour;
     }
+
+    @Override
+    public String toString() {
+        return number + "," + colour;
+    }
 }

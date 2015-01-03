@@ -18,9 +18,7 @@ public class PasswordView extends LinearLayout {
 
     private final static int[] numbersList = new int[]{1,2,3,4};
     private final static String[] coloursList = new String[]{"RED","GREEN","BLUE","YELLOW"};
-    private int screenWidth;
-    private int screenHeight;
-    private int headerHeight ;
+
     private PasswordEvaluator passwordEvaluator;
 
     public PasswordView(Context context,PasswordEvaluator passwordEvaluator) {
@@ -32,12 +30,10 @@ public class PasswordView extends LinearLayout {
         setLayoutParams(lp);
 
         ArrayList<Figure> figureList  = getPassword();
-        headerHeight = ScreenMathUtils.dpToPx(20, context);
-        screenWidth = ActivityUtils.getWidthInPx(context);
-        screenHeight = ActivityUtils.getHeightInPx(context);
-        RowLayout row1 = new RowLayout(context,screenHeight/3,screenWidth/3,figureList.get(0),figureList.get(1),figureList.get(2),passwordEvaluator);
-        RowLayout row2 = new RowLayout(context,screenHeight/3,screenWidth/3,figureList.get(3),figureList.get(4),figureList.get(5),passwordEvaluator);
-        RowLayout row3 = new RowLayout(context,screenHeight/3,screenWidth/3,figureList.get(6),figureList.get(7),figureList.get(8),passwordEvaluator);
+
+        RowLayout row1 = new RowLayout(context,figureList.get(0),figureList.get(1),figureList.get(2),passwordEvaluator);
+        RowLayout row2 = new RowLayout(context,figureList.get(3),figureList.get(4),figureList.get(5),passwordEvaluator);
+        RowLayout row3 = new RowLayout(context,figureList.get(6),figureList.get(7),figureList.get(8),passwordEvaluator);
 
         addView(row1);
         addView(row2);

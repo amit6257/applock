@@ -1,6 +1,9 @@
 package com.example.amitagarwal.applock.views;
 
+import android.widget.Toast;
+
 import com.example.amitagarwal.applock.activity.PasswordScreen;
+import com.example.amitagarwal.applock.utils.Constants;
 
 import java.util.ArrayList;
 
@@ -9,16 +12,50 @@ import java.util.ArrayList;
  */
 public class PasswordEvaluator {
 
+    ArrayList<Object> password = new ArrayList<>();
     ArrayList<Figure> passwordEntered = new ArrayList<>();
     private PasswordScreen passwordScreen;
 
     public PasswordEvaluator(PasswordScreen passwordScreen) {
         this.passwordScreen = passwordScreen;
+        password.add(Integer.parseInt("4"));
+        password.add(Integer.parseInt("2"));
+        password.add("BLUE");
+        password.add("GREEN");
+
     }
 
     public void updateAndCheckPassword(Figure figure){
+        System.out.println(figure.toString());
         passwordEntered.add(figure);
-        if(passwordEntered.size() == Password.PASSWORD_LENGTH){
+        Figure temp;
+        Object obj;
+        if(passwordEntered.size() == Constants.PASSWORD_LENGTH){
+
+            boolean passwordCorrect = true;
+            for(int i=0;i< Constants.PASSWORD_LENGTH;i++){
+                temp = passwordEntered.get(i);
+                obj = password.get(i);
+                if(obj instanceof Integer){
+                    int value = ((Integer) obj).intValue();
+                    if(temp.getNumber() != value){
+                        passwordCorrect = false;
+                        break;
+                    }
+                }else if(obj instanceof String){
+                    String valString = obj.toString();
+                    if(valString != temp.getColour()){
+                        passwordCorrect = false;
+                        break;
+                    }
+
+                }
+            }
+            if(passwordCorrect){
+                passwordScreen.finish();
+                Toast.makeText(passwordScreen,"Correct PAssword", Toast.LENGTH_LONG);
+            }
+
 
         }
     }
