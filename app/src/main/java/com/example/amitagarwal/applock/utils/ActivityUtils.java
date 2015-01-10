@@ -76,7 +76,8 @@ public class ActivityUtils {
 		WindowManager windowManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
 		windowManager.getDefaultDisplay().getMetrics(metrics);
 		int widthInPixels =  windowManager.getDefaultDisplay().getWidth();
-		return widthInPixels;
+        //TODO: remove this hack
+		return widthInPixels - 100;
 	}
 	
 	public static boolean isRegisteredApp(Context context,String packageName){
