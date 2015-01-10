@@ -70,3 +70,42 @@ like us on facebook
 //21. remove this app from unlock apps list
 //22.ads in passwrod screen
 //23. add progress bar to splash
+
+
+
+
+
+
+
+
+
+how does password work:
+1.there are 6 digits and 4 colours
+2.at least two occurrences of each digit will be there(except when password contains all 6 digits coz there are only ten positions)
+3.at least once occurrence of each color and rest will be randomized.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

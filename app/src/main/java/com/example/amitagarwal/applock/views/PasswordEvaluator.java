@@ -4,6 +4,7 @@ import android.widget.Toast;
 
 import com.example.amitagarwal.applock.activity.PasswordScreen;
 import com.example.amitagarwal.applock.utils.Constants;
+import com.example.amitagarwal.applock.utils.PasswordManager;
 
 import java.util.ArrayList;
 
@@ -12,17 +13,13 @@ import java.util.ArrayList;
  */
 public class PasswordEvaluator {
 
-    ArrayList<Object> password = new ArrayList<>();
-    ArrayList<Figure> passwordEntered = new ArrayList<>();
+    ArrayList<Object> password;
+    private ArrayList<Figure> passwordEntered = new ArrayList<>();
     private PasswordScreen passwordScreen;
 
     public PasswordEvaluator(PasswordScreen passwordScreen) {
         this.passwordScreen = passwordScreen;
-        password.add(Integer.parseInt("4"));
-        password.add(Integer.parseInt("2"));
-        password.add("BLUE");
-        password.add("GREEN");
-
+        password = PasswordManager.getSavedPassword();
     }
 
     public void updateAndCheckPassword(Figure figure){
@@ -53,7 +50,7 @@ public class PasswordEvaluator {
             }
             if(passwordCorrect){
                 passwordScreen.finish();
-                Toast.makeText(passwordScreen,"Correct PAssword", Toast.LENGTH_LONG);
+                Toast.makeText(passwordScreen,"Correct Password", Toast.LENGTH_LONG);
             }
 
 

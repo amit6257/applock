@@ -35,6 +35,7 @@ public class MyCustomButton extends Button implements View.OnClickListener{
 
     private void updateView() {
         setText(figure.getNumber() + "");
+        setTextSize(25);
         if(figure.getColour().equalsIgnoreCase("RED"))
             setBackgroundColor(Color.RED);
         else if(figure.getColour().equalsIgnoreCase("BLUE"))

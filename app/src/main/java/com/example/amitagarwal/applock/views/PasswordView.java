@@ -4,6 +4,7 @@ import android.content.Context;
 import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.utils.ActivityUtils;
+import com.example.amitagarwal.applock.utils.PasswordManager;
 import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 
 import java.util.ArrayList;
@@ -15,10 +16,6 @@ import java.util.Random;
  */
 public class PasswordView extends LinearLayout {
 
-
-    private final static int[] numbersList = new int[]{1,2,3,4};
-    private final static String[] coloursList = new String[]{"RED","GREEN","BLUE","YELLOW"};
-
     private PasswordEvaluator passwordEvaluator;
 
     public PasswordView(Context context,PasswordEvaluator passwordEvaluator) {
@@ -29,7 +26,7 @@ public class PasswordView extends LinearLayout {
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         setLayoutParams(lp);
 
-        ArrayList<Figure> figureList  = getPassword();
+        ArrayList<Figure> figureList  = PasswordManager.getPassword();
 
         RowLayout row1 = new RowLayout(context,figureList.get(0),figureList.get(1),figureList.get(2),passwordEvaluator);
         RowLayout row2 = new RowLayout(context,figureList.get(3),figureList.get(4),figureList.get(5),passwordEvaluator);
@@ -40,36 +37,4 @@ public class PasswordView extends LinearLayout {
         addView(row3);
 
     }
-
-    private ArrayList<Figure> getPassword(){
-
-        ArrayList<Figure> figureList = new ArrayList<>();
-        Figure figure;
-        for(int i=0;i<4;i++){
-            figure = new Figure();
-            figure.setNumber(numbersList[i]);
-            figureList.add(figure);
-        }
-        //randomise so that each colour goes with unknown number
-        Collections.shuffle(figureList);
-
-        //add colors
-        for(int i=0;i<4;i++){
-            figureList.get(i).setColour(coloursList[i]);
-        }
-
-        //now fill the remaining 6 password figures
-        Random random = new Random();
-        int randomNumber;
-        int randomColor;
-        for(int i=0;i<6;i++){
-            randomNumber = random.nextInt(4);
-            randomColor = random.nextInt(4);
-            figure = new Figure(numbersList[randomNumber],coloursList[randomColor]);
-            figureList.add(figure);
-        }
-
-        return figureList;
-    }
-
 }
