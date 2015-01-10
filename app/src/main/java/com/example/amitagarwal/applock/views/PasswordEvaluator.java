@@ -64,7 +64,8 @@ public class PasswordEvaluator {
     }
 
     public void cancelClicked() {
-        //go to home
+        //go home
+        passwordScreen.onBackPressed();
     }
 
     public void backClicked() {
