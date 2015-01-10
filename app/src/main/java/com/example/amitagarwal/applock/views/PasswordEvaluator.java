@@ -24,6 +24,7 @@ public class PasswordEvaluator {
 
     public void updateAndCheckPassword(Figure figure){
         System.out.println(figure.toString());
+        passwordScreen.addStarsToPassword();
         passwordEntered.add(figure);
         Figure temp;
         Object obj;
@@ -58,9 +59,7 @@ public class PasswordEvaluator {
     }
 
     public void onBackPressed(){
-        if(passwordEntered.size() > 0){
-            passwordEntered.remove(passwordEntered.size() - 1);
-        }
+        
     }
 
     public void cancelClicked() {
@@ -69,6 +68,6 @@ public class PasswordEvaluator {
     }
 
     public void backClicked() {
-        //change ui + additional things
+        passwordScreen.removeStarsFromPassword();
     }
 }

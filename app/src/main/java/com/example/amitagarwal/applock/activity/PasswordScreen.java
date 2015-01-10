@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
@@ -26,7 +27,7 @@ public class PasswordScreen extends Activity implements OnClickListener {
 	public static final int GRIDVIEW_VERTICAL_SPACING = 1;
 
 	private int buttonPressCount = 0;
-
+    private int noOfStars = 0;
 	private int passwordLength;
     private PasswordEvaluator passwordEvaluator;
 	private int[] pwdEntered;
@@ -34,12 +35,14 @@ public class PasswordScreen extends Activity implements OnClickListener {
 	private int savedPassword[];	
 //	private MyCustomPasswordView passwordView;
     private PasswordView passwordView;
+    EditText passwordText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password_screen);
+        passwordText = (EditText)findViewById(R.id.password_text);
         passwordEvaluator = new PasswordEvaluator(this);
 		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.password_screen);
 
@@ -149,4 +152,25 @@ public class PasswordScreen extends Activity implements OnClickListener {
 
 
 	}
+    public void addStarsToPassword() {
+        noOfStars ++;
+        StringBuilder stars = new StringBuilder();
+        for(int i=0;i<noOfStars;i++){
+            stars.append("*");
+        }
+        passwordText.setText(stars.toString());
+    }
+
+    public void removeStarsFromPassword() {
+        if(noOfStars <= 0){
+            return;
+        }
+        noOfStars --;
+        StringBuilder stars = new StringBuilder();
+        for(int i=0;i<noOfStars;i++){
+            stars.append("*");
+        }
+        passwordText.setText(stars.toString());
+
+    }
 }
