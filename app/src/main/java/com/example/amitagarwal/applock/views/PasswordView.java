@@ -32,9 +32,12 @@ public class PasswordView extends LinearLayout {
         RowLayout row2 = new RowLayout(context,figureList.get(3),figureList.get(4),figureList.get(5),passwordEvaluator);
         RowLayout row3 = new RowLayout(context,figureList.get(6),figureList.get(7),figureList.get(8),passwordEvaluator);
 
+        LastRowLayout lastRow = new LastRowLayout(context,figureList.get(9),passwordEvaluator);
+
         addView(row1);
         addView(row2);
         addView(row3);
+        addView(lastRow);
 
     }
 }

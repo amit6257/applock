@@ -62,4 +62,12 @@ public class PasswordEvaluator {
             passwordEntered.remove(passwordEntered.size() - 1);
         }
     }
+
+    public void cancelClicked() {
+        //go to home
+    }
+
+    public void backClicked() {
+        //change ui + additional things
+    }
 }

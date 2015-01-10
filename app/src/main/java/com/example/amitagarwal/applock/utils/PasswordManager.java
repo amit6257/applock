@@ -11,7 +11,7 @@ import java.util.Random;
  */
 public class PasswordManager {
 
-    private static final int PASSWORD_LENGTH = 9;
+    private static final int PASSWORD_LENGTH = 10;
     private static final int NO_OF_COLOURS = 4;
     int[] numbersList = new int[]{0,1, 2, 3, 4, 5};
     private static String[] coloursList = new String[]{"RED", "GREEN", "BLUE", "YELLOW"};
