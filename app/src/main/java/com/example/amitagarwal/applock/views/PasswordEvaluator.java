@@ -70,6 +70,6 @@ public class PasswordEvaluator {
     public void backClicked() {
         passwordScreen.removeStarsFromPassword();
         if(passwordEntered.size() > 0)
-            passwordEntered.remove(password.size()-1);
+            passwordEntered.remove(passwordEntered.size()-1);
     }
 }
