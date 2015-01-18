@@ -24,7 +24,6 @@ public class SetPassFirstActivity extends EnterPasswordBaseActivity {
 		passwordScreenView = (LinearLayout)findViewById(R.id.set_first_password_screen);
         passwordViewNew = new ConfigurePasswordView(this,setPasswordListener);
         passwordScreenView.addView(passwordViewNew);
-
 	}
 
 //	public void resetPassword(View v){

@@ -199,19 +199,20 @@ public class AppsListMainActivity extends FragmentActivity implements TabListene
 
 
 		String showPasswordScreen = (String) AppLockContextCache.instatnce().getItem(Constants.SHOW_PWD);
-		if(!MyStringUtils.isNullOrEmpty(showPasswordScreen) && showPasswordScreen.equalsIgnoreCase(Constants.SHOW_PWD)){
-			askForPassword();
-			AppLockContextCache.instatnce().clearValue(Constants.SHOW_PWD);
-		}
+//		if(!MyStringUtils.isNullOrEmpty(showPasswordScreen) && showPasswordScreen.equalsIgnoreCase(Constants.SHOW_PWD)){
+//			askForPassword();
+//			AppLockContextCache.instatnce().clearValue(Constants.SHOW_PWD);
+//		}
 		if(!MyStringUtils.isNullOrEmpty(showPasswordScreen) && showPasswordScreen.equalsIgnoreCase(Constants.DONT_SHOW_PWD)){
 			//do not ask for pwd
 			AppLockContextCache.instatnce().clearValue(Constants.SHOW_PWD);
-		}else{
-			if(isResumed){
-				askForPassword();	
-			}
-
-		}	
+		}
+// else{
+//			if(isResumed){
+//				askForPassword();
+//			}
+//
+//		}
 		isResumed = true;
 		super.onResume();		
 	}

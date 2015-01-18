@@ -70,12 +70,12 @@
             android:name="com.example.amitagarwal.applock.activity.AppsListMainActivity"
             android:screenOrientation="portrait" >
         </activity>
-        <!--<activity-->
-            <!--android:name="com.example.amitagarwal.applock.activity.PasswordScreen"-->
-            <!--android:excludeFromRecents="true"-->
-            <!--android:noHistory="true"-->
-            <!--android:screenOrientation="portrait" >-->
-        <!--</activity>-->
+        <activity
+            android:name="com.example.amitagarwal.applock.activity.PasswordScreen"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.example.amitagarwal.applock.activity.WelcomeActivity"
             android:screenOrientation="portrait" >

@@ -49,7 +49,7 @@ public class SetPasswordListener{
         if(passwordEntered.size() > 0)
             passwordEntered.remove(passwordEntered.size()-1);
     }
-    public void savePassword(){
+    public boolean savePassword(){
         ArrayList<EnterPasswordFigure> passFromLastScreen = (ArrayList<EnterPasswordFigure>) AppLockContextCache.instatnce().getItem(PasswordManager.PASSWORD_CONFIGURED);
         if(!MyStringUtils.isNullOrEmpty(passFromLastScreen)){
             if(doPasswordsMatch(passFromLastScreen)){
@@ -60,12 +60,14 @@ public class SetPasswordListener{
                 String passString = passToSave.toString().substring(0, passToSave.toString().length() - 1);
                 MyPreferenceManager.instance().savePassword(passString);
                 Toast.makeText(enterPasswordBaseActivity, "Password Saved :)" + passString, Toast.LENGTH_SHORT).show();
+                return true;
             }else{
                 clearPassword();
                 String errorPasswordMismatch = enterPasswordBaseActivity.getResources().getString(R.string.wrong_password);
                 MyCustomDialog.showErrorMessage(errorPasswordMismatch, enterPasswordBaseActivity);
             }
         }
+        return false;
     }
 
     private boolean doPasswordsMatch(ArrayList<EnterPasswordFigure> passFromLastScreen) {
@@ -93,12 +95,15 @@ public class SetPasswordListener{
     }
 
     public void doneClicked() {
-        savePassword();
-        if(MyPreferenceManager.instance().isFirstTimeHomepageLoad()){
-            Intent startMainActivity = new Intent(enterPasswordBaseActivity, AppsListMainActivity.class);
-            enterPasswordBaseActivity.startActivity(startMainActivity);
-            enterPasswordBaseActivity.finish();
+        boolean pwdSaved = savePassword();
+        if(pwdSaved){
+            if(MyPreferenceManager.instance().isFirstTimeHomepageLoad()){
+                Intent startMainActivity = new Intent(enterPasswordBaseActivity, AppsListMainActivity.class);
+                enterPasswordBaseActivity.startActivity(startMainActivity);
+                enterPasswordBaseActivity.finish();
+            }
         }
+
     }
     private void clearPassword(){
         enterPasswordBaseActivity.clearPassword();

@@ -6,7 +6,6 @@ import android.widget.EditText;
 
 import com.example.amitagarwal.applock.views.PasswordEvaluator;
 import com.example.amitagarwal.applock.views.PasswordView;
-import com.example.amitagarwal.applocks.R;
 
 /**
  * Created by amitagarwal on 1/17/15.
@@ -14,7 +13,7 @@ import com.example.amitagarwal.applocks.R;
 public class PasswordBaseActivity extends Activity {
 
     protected PasswordView passwordView;
-    protected EditText passwordText;
+    protected EditText passwordStarText;
     protected int noOfStars = 0;
     protected PasswordEvaluator passwordEvaluator;
 
@@ -30,7 +29,7 @@ public class PasswordBaseActivity extends Activity {
         for(int i=0;i<noOfStars;i++){
             stars.append("*");
         }
-        passwordText.setText(stars.toString());
+        passwordStarText.setText(stars.toString());
     }
 
     public void removeStarsFromPassword() {
@@ -42,6 +41,11 @@ public class PasswordBaseActivity extends Activity {
         for(int i=0;i<noOfStars;i++){
             stars.append("*");
         }
-        passwordText.setText(stars.toString());
+        passwordStarText.setText(stars.toString());
+    }
+
+    public void clearPassword(){
+        noOfStars = 0;
+        passwordStarText.setText("");
     }
 }

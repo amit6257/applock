@@ -5,6 +5,7 @@ import com.example.amitagarwal.applock.views.Figure;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Created by amitagarwal on 1/10/15.
@@ -22,11 +23,35 @@ public class PasswordManager {
 
     public static ArrayList<Object> getSavedPassword(){
 
+        String savedDelimitedPwd = MyPreferenceManager.instance().getPassword();
+        StringTokenizer st = new StringTokenizer(savedDelimitedPwd,";");
+
         ArrayList<Object> password = new ArrayList<>();
-        password.add(Integer.parseInt("4"));
-        password.add(Integer.parseInt("2"));
-        password.add("BLUE");
-        password.add("GREEN");
+        String token;
+        while(st.hasMoreTokens()){
+            token = st.nextToken();
+            if(token.equalsIgnoreCase("RED")){
+                password.add("RED");
+            }else if(token.equalsIgnoreCase("GREEN")){
+                password.add("GREEN");
+            }else if(token.equalsIgnoreCase("BLUE")){
+                password.add("BLUE");
+            }else if(token.equalsIgnoreCase("YELLOW")){
+                password.add("YELLOW");
+            }else if(token.equalsIgnoreCase("0")){
+                password.add(Integer.parseInt("0"));
+            }else if(token.equalsIgnoreCase("1")){
+                password.add(Integer.parseInt("1"));
+            }else if(token.equalsIgnoreCase("2")){
+                password.add(Integer.parseInt("2"));
+            }else if(token.equalsIgnoreCase("3")){
+                password.add(Integer.parseInt("3"));
+            }else if(token.equalsIgnoreCase("4")){
+                password.add(Integer.parseInt("4"));
+            }else if(token.equalsIgnoreCase("5")){
+                password.add(Integer.parseInt("5"));
+            }
+        }
         return password;
     }
 

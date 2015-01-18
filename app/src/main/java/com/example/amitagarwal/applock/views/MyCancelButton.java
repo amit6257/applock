@@ -1,10 +1,12 @@
 package com.example.amitagarwal.applock.views;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import com.example.amitagarwal.applock.activity.ChangePasswordActivity;
+import com.example.amitagarwal.applock.activity.PasswordScreen;
 
 /**
  * Created by amitagarwal on 1/10/15.
@@ -33,11 +35,18 @@ public class MyCancelButton extends Button implements View.OnClickListener {
 
     private void updateView() {
         setTextSize(25);
-        setText("Home");
+        if(passwordEvaluator.getPasswordBaseActivity() instanceof ChangePasswordActivity)
+            setText("Next");
+        else setText("Home");
     }
 
     @Override
     public void onClick(View v) {
-        passwordEvaluator.cancelClicked();
+        if(passwordEvaluator.getPasswordBaseActivity() instanceof ChangePasswordActivity){
+            passwordEvaluator.changePasswordNextClicked();
+        }else if(passwordEvaluator.getPasswordBaseActivity() instanceof PasswordScreen){
+            passwordEvaluator.cancelClicked();
+        }
+
     }
 }
