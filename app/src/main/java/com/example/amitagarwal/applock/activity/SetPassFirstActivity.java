@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
@@ -12,28 +13,32 @@ import com.example.amitagarwal.applock.broadcastreceiver.Constants;
 import com.example.amitagarwal.applock.utils.MyStringUtils;
 import com.example.amitagarwal.applock.views.CustomViewConstants;
 import com.example.amitagarwal.applock.views.EnterCurrentPasswordView;
+import com.example.amitagarwal.applock.views.PasswordEvaluator;
+import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 
 import java.util.ArrayList;
 
-public class SetPassFirstActivity extends Activity implements OnClickListener {
+public class SetPassFirstActivity extends PasswordBaseActivity implements OnClickListener {
 
 	ArrayList<Integer> passEntered = new ArrayList<Integer>();
 	private EnterCurrentPasswordView passwordView;
+    private PasswordView passwordViewNew;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_pwd_screen1);
-		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.set_first_password_screen);
+        passwordText = (EditText)findViewById(R.id.password_text);
+		LinearLayout passwordScreenView = (LinearLayout)findViewById(R.id.set_first_password_screen);
+//		passwordView = new EnterCurrentPasswordView(this,this);
+        passwordViewNew = new PasswordView(this,passwordEvaluator);
+        passwordScreenView.addView(passwordViewNew);
 
-		passwordView = new EnterCurrentPasswordView(this,this);
-		passwordScreen.addView(passwordView);
 	}
 
 	public void resetPassword(View v){
 		clearPasswordData();
-		
 	}
 	
 	public void continueToConfirmationScreen(View v){

@@ -2,6 +2,7 @@ package com.example.amitagarwal.applock.views;
 
 import android.widget.Toast;
 
+import com.example.amitagarwal.applock.activity.PasswordBaseActivity;
 import com.example.amitagarwal.applock.activity.PasswordScreen;
 import com.example.amitagarwal.applock.utils.Constants;
 import com.example.amitagarwal.applock.utils.PasswordManager;
@@ -15,9 +16,9 @@ public class PasswordEvaluator {
 
     ArrayList<Object> password;
     private ArrayList<Figure> passwordEntered = new ArrayList<>();
-    private PasswordScreen passwordScreen;
+    private PasswordBaseActivity passwordScreen;
 
-    public PasswordEvaluator(PasswordScreen passwordScreen) {
+    public PasswordEvaluator(PasswordBaseActivity passwordScreen) {
         this.passwordScreen = passwordScreen;
         password = PasswordManager.getSavedPassword();
     }

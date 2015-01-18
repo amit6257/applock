@@ -21,29 +21,23 @@ import com.example.amitagarwal.applock.views.PasswordEvaluator;
 import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 
-public class PasswordScreen extends Activity implements OnClickListener {
+public class PasswordScreen extends PasswordBaseActivity implements OnClickListener {
 
 	public static final int GRIDVIEW_HORIZONTAL_SPACING = 1;
 	public static final int GRIDVIEW_VERTICAL_SPACING = 1;
-
 	private int buttonPressCount = 0;
-    private int noOfStars = 0;
 	private int passwordLength;
-    private PasswordEvaluator passwordEvaluator;
 	private int[] pwdEntered;
-
-	private int savedPassword[];	
+	private int savedPassword[];
 //	private MyCustomPasswordView passwordView;
-    private PasswordView passwordView;
-    EditText passwordText;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.password_screen);
-        passwordText = (EditText)findViewById(R.id.password_text);
-        passwordEvaluator = new PasswordEvaluator(this);
+
 		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.password_screen);
 
 
@@ -152,25 +146,4 @@ public class PasswordScreen extends Activity implements OnClickListener {
 
 
 	}
-    public void addStarsToPassword() {
-        noOfStars ++;
-        StringBuilder stars = new StringBuilder();
-        for(int i=0;i<noOfStars;i++){
-            stars.append("*");
-        }
-        passwordText.setText(stars.toString());
-    }
-
-    public void removeStarsFromPassword() {
-        if(noOfStars <= 0){
-            return;
-        }
-        noOfStars --;
-        StringBuilder stars = new StringBuilder();
-        for(int i=0;i<noOfStars;i++){
-            stars.append("*");
-        }
-        passwordText.setText(stars.toString());
-
-    }
 }

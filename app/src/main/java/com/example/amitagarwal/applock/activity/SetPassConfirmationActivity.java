@@ -18,7 +18,7 @@ import com.example.amitagarwal.applocks.R;
 
 import java.util.ArrayList;
 
-public class SetPassConfirmationActivity extends Activity implements OnClickListener {
+public class SetPassConfirmationActivity extends PasswordBaseActivity implements OnClickListener {
 
 	ArrayList<Integer> passEntered = new ArrayList<Integer>();
 	private EnterCurrentPasswordView passwordView;
