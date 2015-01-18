@@ -48,7 +48,7 @@ public class MyPreferenceManager {
 		this.sharedPreferences.edit().putString(KEY_PASSWORD, pwd).commit();
 	}
 	
-	public String getPasswod(){
+	public String getPassword(){
 		return this.sharedPreferences.getString(KEY_PASSWORD, "");
 	}
 

@@ -1,23 +1,17 @@
 package com.example.amitagarwal.applock.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
 import com.example.amitagarwal.applock.broadcastreceiver.Constants;
-import com.example.amitagarwal.applock.utils.ActivityUtils;
-import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applock.utils.MathUtils;
 import com.example.amitagarwal.applock.utils.MyPreferenceManager;
 import com.example.amitagarwal.applock.views.CustomViewConstants;
-import com.example.amitagarwal.applock.views.MyCustomPasswordView;
-import com.example.amitagarwal.applock.views.PasswordEvaluator;
 import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 
@@ -53,7 +47,7 @@ public class PasswordScreen extends PasswordBaseActivity implements OnClickListe
 	}
 
 	private void setSavedPwdAndPwdLength() {
-		String pwd = MyPreferenceManager.instance().getPasswod();
+		String pwd = MyPreferenceManager.instance().getPassword();
 
 		passwordLength = pwd.length();
 

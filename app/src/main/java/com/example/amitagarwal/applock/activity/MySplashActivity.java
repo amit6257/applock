@@ -61,7 +61,7 @@ public class MySplashActivity extends Activity{
 
 	private boolean isAppFirstTimeOpened() {
 
-		if(MyStringUtils.isNullOrEmpty(MyPreferenceManager.instance().getPasswod())){
+		if(MyStringUtils.isNullOrEmpty(MyPreferenceManager.instance().getPassword())){
 			return true;
 		}
 		return false;

@@ -3,6 +3,7 @@ package com.example.amitagarwal.applock.utils;
 import android.content.Intent;
 import android.widget.Toast;
 
+import com.example.amitagarwal.applock.activity.AppsListMainActivity;
 import com.example.amitagarwal.applock.activity.EnterPasswordBaseActivity;
 import com.example.amitagarwal.applock.activity.SetPassConfirmationActivity;
 import com.example.amitagarwal.applock.broadcastreceiver.*;
@@ -56,10 +57,9 @@ public class SetPasswordListener{
                 for(int i=0;i<passFromLastScreen.size();i++){
                     passToSave.append(passFromLastScreen.get(i).toString() + ";");
                 }
-                String passString = passToSave.toString().substring(0,passToSave.toString().length() - 1);
+                String passString = passToSave.toString().substring(0, passToSave.toString().length() - 1);
                 MyPreferenceManager.instance().savePassword(passString);
                 Toast.makeText(enterPasswordBaseActivity, "Password Saved :)" + passString, Toast.LENGTH_SHORT).show();
-                enterPasswordBaseActivity.finish();
             }else{
                 clearPassword();
                 String errorPasswordMismatch = enterPasswordBaseActivity.getResources().getString(R.string.wrong_password);
@@ -94,6 +94,11 @@ public class SetPasswordListener{
 
     public void doneClicked() {
         savePassword();
+        if(MyPreferenceManager.instance().isFirstTimeHomepageLoad()){
+            Intent startMainActivity = new Intent(enterPasswordBaseActivity, AppsListMainActivity.class);
+            enterPasswordBaseActivity.startActivity(startMainActivity);
+            enterPasswordBaseActivity.finish();
+        }
     }
     private void clearPassword(){
         enterPasswordBaseActivity.clearPassword();

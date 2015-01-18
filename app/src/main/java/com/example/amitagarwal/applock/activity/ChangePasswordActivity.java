@@ -44,7 +44,7 @@ public class ChangePasswordActivity extends Activity implements OnClickListener 
 	}
 
 	public void validatePassword(View v){
-		String savedPassword = MyPreferenceManager.instance().getPasswod();
+		String savedPassword = MyPreferenceManager.instance().getPassword();
 
 		String passwordEntered = "";
 		for(int i=0;i<passEntered.size();i++){
