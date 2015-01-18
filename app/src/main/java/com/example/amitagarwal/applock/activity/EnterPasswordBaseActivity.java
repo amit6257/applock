@@ -1,26 +1,27 @@
 package com.example.amitagarwal.applock.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
-import com.example.amitagarwal.applock.views.PasswordEvaluator;
-import com.example.amitagarwal.applock.views.PasswordView;
-import com.example.amitagarwal.applocks.R;
+import com.example.amitagarwal.applock.utils.SetPasswordListener;
+import com.example.amitagarwal.applock.views.ConfigurePasswordView;
 
 /**
  * Created by amitagarwal on 1/17/15.
  */
-public class PasswordBaseActivity extends Activity {
+public abstract class EnterPasswordBaseActivity extends Activity  {
 
-    protected PasswordView passwordView;
-    protected EditText passwordText;
+    protected ConfigurePasswordView passwordViewNew;
+    protected ConfigurePasswordView passwordView;
+    protected EditText passwordStarText;
     protected int noOfStars = 0;
-    protected PasswordEvaluator passwordEvaluator;
+    protected SetPasswordListener setPasswordListener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        passwordEvaluator = new PasswordEvaluator(this);
+        setPasswordListener = new SetPasswordListener(this);
     }
 
 
@@ -30,7 +31,7 @@ public class PasswordBaseActivity extends Activity {
         for(int i=0;i<noOfStars;i++){
             stars.append("*");
         }
-        passwordText.setText(stars.toString());
+        passwordStarText.setText(stars.toString());
     }
 
     public void removeStarsFromPassword() {
@@ -42,6 +43,8 @@ public class PasswordBaseActivity extends Activity {
         for(int i=0;i<noOfStars;i++){
             stars.append("*");
         }
-        passwordText.setText(stars.toString());
+        passwordStarText.setText(stars.toString());
     }
+
+    public abstract void startPasswordConfirmationActivity();
 }

@@ -11,10 +11,12 @@ import java.util.Random;
  */
 public class PasswordManager {
 
-    private static final int PASSWORD_LENGTH = 10;
+    private static final int OBJECT_TYPE_COUNT = 10;
     private static final int NO_OF_COLOURS = 4;
+    private static final int NO_OF_INTEGERS = 6;
     int[] numbersList = new int[]{0,1, 2, 3, 4, 5};
     private static String[] coloursList = new String[]{"RED", "GREEN", "BLUE", "YELLOW"};
+    public static final String PASSWORD_CONFIGURED = "PASSWORD_CONFIGURED";
 
 
     public static ArrayList<Object> getSavedPassword(){
@@ -84,7 +86,7 @@ public class PasswordManager {
         Random random = new Random();
         int randomNumber;
         Figure figure;
-        for (int i = figureList.size(); i < PasswordManager.PASSWORD_LENGTH; i++) {
+        for (int i = figureList.size(); i < PasswordManager.OBJECT_TYPE_COUNT; i++) {
             randomNumber = random.nextInt(6);
             figure = new Figure();
             figure.setNumber(randomNumber);
@@ -111,5 +113,22 @@ public class PasswordManager {
         }
 
         return digitsFreqInPwd;
+    }
+
+    public static ArrayList<EnterPasswordFigure> getFigureListForConfigurePassword() {
+
+        ArrayList<EnterPasswordFigure> figureList = new ArrayList<>();
+        EnterPasswordFigure figure;
+        for(int i=0;i<NO_OF_INTEGERS;i++){
+            figure = new EnterPasswordFigure();
+            figure.setNumber(i);
+            figureList.add(figure);
+        }
+        for(int i=0;i<NO_OF_COLOURS;i++){
+            figure = new EnterPasswordFigure();
+            figure.setColor(coloursList[i]);
+            figureList.add(figure);
+        }
+        return figureList;
     }
 }
