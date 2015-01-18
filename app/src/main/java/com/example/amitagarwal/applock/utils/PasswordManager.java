@@ -14,6 +14,7 @@ public class PasswordManager {
     private static final int OBJECT_TYPE_COUNT = 10;
     private static final int NO_OF_COLOURS = 4;
     private static final int NO_OF_INTEGERS = 6;
+    public static final int MINIMUM_PWD_LENGTH = 4;
     int[] numbersList = new int[]{0,1, 2, 3, 4, 5};
     private static String[] coloursList = new String[]{"RED", "GREEN", "BLUE", "YELLOW"};
     public static final String PASSWORD_CONFIGURED = "PASSWORD_CONFIGURED";

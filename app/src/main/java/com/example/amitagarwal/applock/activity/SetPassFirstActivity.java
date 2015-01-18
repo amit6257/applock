@@ -16,14 +16,12 @@ import java.util.ArrayList;
 
 public class SetPassFirstActivity extends EnterPasswordBaseActivity {
 
-	ArrayList<Integer> passEntered = new ArrayList<Integer>();
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.set_pwd_screen1);
         passwordStarText = (EditText)findViewById(R.id.password_text);
-		LinearLayout passwordScreenView = (LinearLayout)findViewById(R.id.set_first_password_screen);
+		passwordScreenView = (LinearLayout)findViewById(R.id.set_first_password_screen);
         passwordViewNew = new ConfigurePasswordView(this,setPasswordListener);
         passwordScreenView.addView(passwordViewNew);
 
@@ -33,11 +31,11 @@ public class SetPassFirstActivity extends EnterPasswordBaseActivity {
 //		clearPasswordData();
 //	}
 	
-	public void continueToConfirmationScreen(View v){
-		AppLockContextCache.instatnce().putItem(Constants.TEMP_PWD, passEntered);
-		Intent intent =  new Intent(this,SetPassConfirmationActivity.class);
-		startActivity(intent);
-	}
+//	public void continueToConfirmationScreen(View v){
+//		AppLockContextCache.instatnce().putItem(Constants.TEMP_PWD, passEntered);
+//		Intent intent =  new Intent(this,SetPassConfirmationActivity.class);
+//		startActivity(intent);
+//	}
 
 	@Override
 	protected void onResume() {
@@ -70,8 +68,4 @@ public class SetPassFirstActivity extends EnterPasswordBaseActivity {
 		super.onBackPressed();
 	}
 
-    public void startPasswordConfirmationActivity() {
-        Intent confirmationActivity = new Intent(this,SetPassConfirmationActivity.class);
-        startActivity(confirmationActivity);
-    }
 }

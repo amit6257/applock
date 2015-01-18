@@ -39,4 +39,11 @@ public class EnterPasswordFigure {
         this.color = color;
         isColor = true;
     }
+
+    @Override
+    public String toString() {
+        if(isColor())
+            return color;
+        return number + "";
+    }
 }

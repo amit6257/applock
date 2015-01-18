@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.example.amitagarwal.applock.utils.SetPasswordListener;
 import com.example.amitagarwal.applock.views.ConfigurePasswordView;
@@ -11,12 +12,13 @@ import com.example.amitagarwal.applock.views.ConfigurePasswordView;
 /**
  * Created by amitagarwal on 1/17/15.
  */
-public abstract class EnterPasswordBaseActivity extends Activity  {
+public class EnterPasswordBaseActivity extends Activity  {
 
     protected ConfigurePasswordView passwordViewNew;
     protected ConfigurePasswordView passwordView;
     protected EditText passwordStarText;
     protected int noOfStars = 0;
+    protected LinearLayout passwordScreenView;
     protected SetPasswordListener setPasswordListener;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,11 @@ public abstract class EnterPasswordBaseActivity extends Activity  {
         setPasswordListener = new SetPasswordListener(this);
     }
 
+
+    public void clearPassword(){
+        noOfStars = 0;
+        passwordStarText.setText("");
+    }
 
     public void addStarsToPassword() {
         noOfStars ++;
@@ -45,6 +52,4 @@ public abstract class EnterPasswordBaseActivity extends Activity  {
         }
         passwordStarText.setText(stars.toString());
     }
-
-    public abstract void startPasswordConfirmationActivity();
 }

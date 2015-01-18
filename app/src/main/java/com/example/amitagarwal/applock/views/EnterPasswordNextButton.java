@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.amitagarwal.applock.activity.SetPassConfirmationActivity;
+import com.example.amitagarwal.applock.activity.SetPassFirstActivity;
 import com.example.amitagarwal.applock.utils.SetPasswordListener;
 
 /**
@@ -39,6 +41,9 @@ public class EnterPasswordNextButton extends Button implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        setPasswordListener.nextClicked();
+        if(setPasswordListener.getEnterPasswordBaseActivity() instanceof SetPassFirstActivity)
+            setPasswordListener.nextClicked();
+        else if(setPasswordListener.getEnterPasswordBaseActivity() instanceof SetPassConfirmationActivity)
+            setPasswordListener.doneClicked();
     }
 }
