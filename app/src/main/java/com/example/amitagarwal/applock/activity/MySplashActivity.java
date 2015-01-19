@@ -23,8 +23,9 @@ public class MySplashActivity extends Activity{
 			startMainActivity();
 		}
 		else{
-			startWelcomeActivity();
-			performBackgroundTasks();
+            performBackgroundTasks();
+            startWelcomeActivity();
+
 		}
 	}
 	private void startMainActivity() {

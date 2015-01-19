@@ -16,8 +16,9 @@ import java.util.ArrayList;
  */
 public class PasswordEvaluator {
 
-    ArrayList<Object> password;
+    private ArrayList<Object> password;
     private ArrayList<Figure> passwordEntered = new ArrayList<>();
+    private int savedPasswordLength;
 
 
 
@@ -28,15 +29,16 @@ public class PasswordEvaluator {
     public PasswordEvaluator(PasswordBaseActivity passwordBaseActivity) {
         this.passwordBaseActivity = passwordBaseActivity;
         password = PasswordManager.getSavedPassword();
+        savedPasswordLength = password.size();
     }
 
     public boolean checkPassword(){
         Figure temp;
         Object obj;
-        if(passwordEntered.size() == Constants.PASSWORD_LENGTH){
+        if(passwordEntered.size() == savedPasswordLength){
 
             boolean passwordCorrect = true;
-            for(int i=0;i< Constants.PASSWORD_LENGTH;i++){
+            for(int i=0;i< savedPasswordLength;i++){
                 temp = passwordEntered.get(i);
                 obj = password.get(i);
                 if(obj instanceof Integer){

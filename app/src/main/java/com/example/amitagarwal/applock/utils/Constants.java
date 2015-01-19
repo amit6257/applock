@@ -9,5 +9,5 @@ import java.util.Objects;
  */
 public class Constants {
 
-    public static final int PASSWORD_LENGTH = 4;
+
 }
