@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 
-import com.crittercism.app.Crittercism;
-import com.example.amitagarwal.applock.config.ApplockConfigProvider;
 import com.example.amitagarwal.applock.utils.MyPreferenceManager;
 import com.parse.Parse;
 

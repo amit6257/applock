@@ -6,7 +6,6 @@ import android.widget.Toast;
 import com.example.amitagarwal.applock.activity.ChangePasswordActivity;
 import com.example.amitagarwal.applock.activity.PasswordBaseActivity;
 import com.example.amitagarwal.applock.activity.SetPassFirstActivity;
-import com.example.amitagarwal.applock.utils.Constants;
 import com.example.amitagarwal.applock.utils.PasswordManager;
 
 import java.util.ArrayList;
@@ -19,13 +18,12 @@ public class PasswordEvaluator {
     private ArrayList<Object> password;
     private ArrayList<Figure> passwordEntered = new ArrayList<>();
     private int savedPasswordLength;
-
-
-
     private PasswordBaseActivity passwordBaseActivity;
+
     public PasswordBaseActivity getPasswordBaseActivity() {
         return passwordBaseActivity;
     }
+
     public PasswordEvaluator(PasswordBaseActivity passwordBaseActivity) {
         this.passwordBaseActivity = passwordBaseActivity;
         password = PasswordManager.getSavedPassword();

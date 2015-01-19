@@ -12,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applock.utils.ActivityUtils;
+import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applocks.R;
 
 public class MyCustomPasswordView extends RelativeLayout{

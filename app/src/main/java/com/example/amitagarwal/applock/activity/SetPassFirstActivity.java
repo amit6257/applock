@@ -2,7 +2,6 @@ package com.example.amitagarwal.applock.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -11,8 +10,6 @@ import com.example.amitagarwal.applock.broadcastreceiver.Constants;
 import com.example.amitagarwal.applock.utils.MyStringUtils;
 import com.example.amitagarwal.applock.views.ConfigurePasswordView;
 import com.example.amitagarwal.applocks.R;
-
-import java.util.ArrayList;
 
 public class SetPassFirstActivity extends EnterPasswordBaseActivity {
 

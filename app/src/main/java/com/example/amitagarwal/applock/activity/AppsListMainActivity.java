@@ -17,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.amitagarwal.applocks.R;
 import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
 import com.example.amitagarwal.applock.broadcastreceiver.Constants;
 import com.example.amitagarwal.applock.broadcastreceiver.LApplication;
@@ -27,6 +26,7 @@ import com.example.amitagarwal.applock.services.MyUpdateService;
 import com.example.amitagarwal.applock.utils.MyStringUtils;
 import com.example.amitagarwal.applock.utils.ParseUtils;
 import com.example.amitagarwal.applock.views.TabsPagerAdapter;
+import com.example.amitagarwal.applocks.R;
 import com.parse.ParseAnalytics;
 
 public class AppsListMainActivity extends FragmentActivity implements TabListener{

@@ -3,16 +3,11 @@ package com.example.amitagarwal.applock.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
 import com.example.amitagarwal.applock.broadcastreceiver.Constants;
-import com.example.amitagarwal.applock.utils.MathUtils;
 import com.example.amitagarwal.applock.utils.MyPreferenceManager;
-import com.example.amitagarwal.applock.views.CustomViewConstants;
 import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 

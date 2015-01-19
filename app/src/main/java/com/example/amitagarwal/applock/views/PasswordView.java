@@ -3,13 +3,9 @@ package com.example.amitagarwal.applock.views;
 import android.content.Context;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.utils.ActivityUtils;
 import com.example.amitagarwal.applock.utils.PasswordManager;
-import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 /**
  * Created by amitagarwal on 1/3/15.
