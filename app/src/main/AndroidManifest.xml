@@ -91,7 +91,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.example.amitagarwal.applock.activity.ChangePasswordActivity"
+            android:name="com.example.amitagarwal.applock.activity.InitChangePasswordActivity"
             android:screenOrientation="portrait" >
         </activity>
 

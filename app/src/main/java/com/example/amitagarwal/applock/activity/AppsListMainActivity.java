@@ -31,7 +31,7 @@ import com.parse.ParseAnalytics;
 
 public class AppsListMainActivity extends FragmentActivity implements TabListener{
 
-	private boolean isResumed = false;
+//	private boolean isResumed = false;
 	
 	private ViewPager viewPager;
 	private TabsPagerAdapter tabbedPagerAdapter;
@@ -153,7 +153,7 @@ public class AppsListMainActivity extends FragmentActivity implements TabListene
 	}
 
 	private void changePassword() {
-		Intent intent = new Intent(this,ChangePasswordActivity.class);
+		Intent intent = new Intent(this,InitChangePasswordActivity.class);
 		startActivity(intent);
 	}
 
@@ -206,14 +206,15 @@ public class AppsListMainActivity extends FragmentActivity implements TabListene
 		if(!MyStringUtils.isNullOrEmpty(showPasswordScreen) && showPasswordScreen.equalsIgnoreCase(Constants.DONT_SHOW_PWD)){
 			//do not ask for pwd
 			AppLockContextCache.instatnce().clearValue(Constants.SHOW_PWD);
-		}
+		}else{
+            askForPassword();
+        }
 // else{
 //			if(isResumed){
 //				askForPassword();
 //			}
 //
 //		}
-		isResumed = true;
 		super.onResume();		
 	}
 

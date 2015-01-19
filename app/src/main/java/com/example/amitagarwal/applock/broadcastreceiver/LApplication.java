@@ -21,7 +21,8 @@ public class LApplication extends Application{
 	@Override
 	public void onCreate(){		
 		super.onCreate();
-		appContext = getApplicationContext();		
+		appContext = getApplicationContext();
+        registeredApps.add(LApplication.getAppContext().getPackageName());
 	
 		//register with parse....not working now
 		//exception is 06-20 03:46:04.101: E/ParseCommandCache(4600): com.parse.ParseException: at least one 

@@ -3,9 +3,11 @@ package com.example.amitagarwal.applock.views;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.example.amitagarwal.applock.activity.ChangePasswordActivity;
+import com.example.amitagarwal.applock.activity.InitChangePasswordActivity;
 import com.example.amitagarwal.applock.activity.PasswordBaseActivity;
 import com.example.amitagarwal.applock.activity.SetPassFirstActivity;
+import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
+import com.example.amitagarwal.applock.broadcastreceiver.Constants;
 import com.example.amitagarwal.applock.utils.PasswordManager;
 
 import java.util.ArrayList;
@@ -68,10 +70,13 @@ public class PasswordEvaluator {
         passwordBaseActivity.addStarsToPassword();
         passwordEntered.add(figure);
         if(checkPassword()){
+            //if we are opening our own app dont show password again
+            AppLockContextCache.instatnce().putItem(Constants.SHOW_PWD, Constants.DONT_SHOW_PWD);
             passwordBaseActivity.finish();
-            if(passwordBaseActivity instanceof ChangePasswordActivity){
+            if(passwordBaseActivity instanceof InitChangePasswordActivity){
                 Intent intent = new Intent(passwordBaseActivity, SetPassFirstActivity.class);
                 passwordBaseActivity.startActivity(intent);
+
             }
             Toast.makeText(passwordBaseActivity,"Correct Password", Toast.LENGTH_LONG);
         }

@@ -10,7 +10,7 @@ import com.example.amitagarwal.applock.utils.MyPreferenceManager;
 import com.example.amitagarwal.applock.views.PasswordView;
 import com.example.amitagarwal.applocks.R;
 
-public class ChangePasswordActivity extends PasswordBaseActivity{
+public class InitChangePasswordActivity extends PasswordBaseActivity{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class ChangePasswordActivity extends PasswordBaseActivity{
 		passwordView = new PasswordView(this,passwordEvaluator);
 		LinearLayout passwordScreen = (LinearLayout)findViewById(R.id.change_password_screen);
 		passwordScreen.addView(passwordView);
-        MyPreferenceManager.instance().initialize(ChangePasswordActivity.this);
+        MyPreferenceManager.instance().initialize(InitChangePasswordActivity.this);
 	}
 
 	@Override

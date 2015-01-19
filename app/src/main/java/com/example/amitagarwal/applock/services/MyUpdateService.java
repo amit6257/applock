@@ -64,7 +64,7 @@ public class MyUpdateService extends IntentService
 						ActivityUtils.openLockScreen(MyUpdateService.this,currentPackageName);
 					}
 					if(! currentPackageName.equalsIgnoreCase(LApplication.getAppContext().getPackageName()))
-						LApplication.setPreviousPackageName(currentPackageName);	
+						LApplication.setPreviousPackageName(currentPackageName);
 				}
 				else{
 					Log.d(Constants.TAG,"currentPackageName is null");

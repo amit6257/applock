@@ -6,7 +6,7 @@ import android.widget.Toast;
 import com.example.amitagarwal.applock.activity.AppsListMainActivity;
 import com.example.amitagarwal.applock.activity.EnterPasswordBaseActivity;
 import com.example.amitagarwal.applock.activity.SetPassConfirmationActivity;
-import com.example.amitagarwal.applock.broadcastreceiver.AppLockContextCache;
+import com.example.amitagarwal.applock.broadcastreceiver.*;
 import com.example.amitagarwal.applock.views.MyCustomAlertDialog;
 import com.example.amitagarwal.applock.views.MyCustomDialog;
 import com.example.amitagarwal.applocks.R;
@@ -100,6 +100,8 @@ public class SetPasswordListener{
                 Intent startMainActivity = new Intent(enterPasswordBaseActivity, AppsListMainActivity.class);
                 enterPasswordBaseActivity.startActivity(startMainActivity);
                 enterPasswordBaseActivity.finish();
+                //since we are in-app , pwd screen need not be shown
+                AppLockContextCache.instatnce().putItem(com.example.amitagarwal.applock.broadcastreceiver.Constants.SHOW_PWD, com.example.amitagarwal.applock.broadcastreceiver.Constants.DONT_SHOW_PWD);
             }
         }
 
