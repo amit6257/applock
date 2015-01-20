@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.utils.ActivityUtils;
 import com.example.amitagarwal.applock.utils.EnterPasswordFigure;
 import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applock.utils.SetPasswordListener;
@@ -31,8 +30,8 @@ public class EnterPasswordRowLayout extends LinearLayout{
         this.f2 = f2;
         this.f3 = f3;
         headerHeight = ScreenMathUtils.dpToPx(20, context);
-        screenWidth = ActivityUtils.getWidthInPx(context);
-        screenHeight = ActivityUtils.getHeightInPx(context);
+        screenWidth = ScreenMathUtils.getWidthInPx(context);
+        screenHeight = ScreenMathUtils.getHeightInPx(context);
 
         buttonHEight = (int)(screenHeight/3.0);
         buttonWidth = (int)(screenWidth/3.0);

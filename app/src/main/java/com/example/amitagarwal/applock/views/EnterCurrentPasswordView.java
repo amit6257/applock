@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.amitagarwal.applock.utils.ActivityUtils;
 import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 import com.example.amitagarwal.applocks.R;
 
@@ -77,7 +76,7 @@ public class EnterCurrentPasswordView extends RelativeLayout{
 	public EnterCurrentPasswordView(Context context,OnClickListener listener) {
 		super(context,null);
 		this.listener = listener;
-		screenWidth = ActivityUtils.getWidthInPx(context);
+		screenWidth = ScreenMathUtils.getWidthInPx(context);
 		CustomViewConstants.BUTTON_WIDTH = screenWidth/3.0 - 2;		
 
 		setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT));

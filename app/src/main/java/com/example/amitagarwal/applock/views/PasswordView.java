@@ -12,12 +12,8 @@ import java.util.ArrayList;
  */
 public class PasswordView extends LinearLayout {
 
-    private PasswordEvaluator passwordEvaluator;
-
     public PasswordView(Context context,PasswordEvaluator passwordEvaluator) {
         super(context);
-        this.passwordEvaluator = passwordEvaluator;
-
         setOrientation(LinearLayout.VERTICAL);
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         setLayoutParams(lp);

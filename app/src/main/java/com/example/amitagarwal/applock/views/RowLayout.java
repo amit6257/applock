@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.utils.ActivityUtils;
+import com.example.amitagarwal.applock.activity.PasswordScreen;
 import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 
 /**
@@ -15,12 +15,12 @@ public class RowLayout extends LinearLayout{
     private Figure f1;
     private Figure f2;
     private Figure f3;
-    private int screenWidth;
-    private int screenHeight;
-    private int headerHeight ;
 
-    private int buttonWidth;
-    private int buttonHEight;
+    private int screenWidth;
+    private int passwordViewHeight;
+
+    private int buttonColumnWidth;
+    private int buttonRowHeight;
     public RowLayout(Context context,Figure f1,Figure f2,Figure f3,PasswordEvaluator passwordEvaluator) {
         super(context);
 
@@ -28,27 +28,27 @@ public class RowLayout extends LinearLayout{
         this.f2 = f2;
         this.f3 = f3;
 
-        headerHeight = ScreenMathUtils.dpToPx(20, context);
-        screenWidth = ActivityUtils.getWidthInPx(context);
-        screenHeight = ActivityUtils.getHeightInPx(context);
+        screenWidth = ScreenMathUtils.getWidthInPx(context) - ScreenMathUtils.dpToPx(10,context);
+        passwordViewHeight = ((PasswordScreen)passwordEvaluator.getPasswordBaseActivity()).passwordLLHeight;
 
-        buttonHEight = (int)(screenHeight/3.0);
-        buttonWidth = (int)(screenWidth/3.0);
+        buttonRowHeight = (int)(passwordViewHeight /4.0);
+        System.out.println(buttonRowHeight + " -----------");
+        buttonColumnWidth = (int)(screenWidth/3.0);
 
-        LayoutParams lp = new LayoutParams(screenWidth,buttonHEight);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, buttonRowHeight);
         setLayoutParams(lp);
         setOrientation(LinearLayout.HORIZONTAL);
         setBackgroundColor(Color.GRAY);
 
         //add buttons
         MyCustomButton button1 = new MyCustomButton(context,passwordEvaluator);
-        button1.setParamsAndUpdateView(buttonWidth,buttonHEight,f1);
+        button1.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight,f1);
 
         MyCustomButton button2 = new MyCustomButton(context,passwordEvaluator);
-        button2.setParamsAndUpdateView(buttonWidth,buttonHEight,f2);
+        button2.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight,f2);
 
         MyCustomButton button3 = new MyCustomButton(context,passwordEvaluator);
-        button3.setParamsAndUpdateView(buttonWidth,buttonHEight,f3);
+        button3.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight,f3);
 
         addView(button1);
         addView(button2);

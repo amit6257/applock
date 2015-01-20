@@ -4,9 +4,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.RunningTaskInfo;
 import android.content.Context;
 import android.content.Intent;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.WindowManager;
 
 import com.example.amitagarwal.applock.activity.PasswordScreen;
 import com.example.amitagarwal.applock.broadcastreceiver.Constants;
@@ -64,23 +62,8 @@ public class ActivityUtils {
 		
 		return LApplication.registeredApps;
 	}
-	
-	public static int getHeightInPx(Context context) {
-		//square board
-		return getWidthInPx(context);
-	}
 
-
-	public static int getWidthInPx(Context context) {
-		DisplayMetrics metrics = new DisplayMetrics();
-		WindowManager windowManager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
-		windowManager.getDefaultDisplay().getMetrics(metrics);
-		int widthInPixels =  windowManager.getDefaultDisplay().getWidth();
-        //TODO: remove this hack
-		return widthInPixels - 100;
-	}
-	
-	public static boolean isRegisteredApp(Context context,String packageName){
+    public static boolean isRegisteredApp(Context context,String packageName){
 		return getRegisteredApps(context).contains(packageName);
 	}
 }

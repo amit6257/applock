@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.widget.LinearLayout;
 
-import com.example.amitagarwal.applock.utils.ActivityUtils;
+import com.example.amitagarwal.applock.activity.PasswordScreen;
 import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 
 /**
@@ -13,39 +13,36 @@ import com.example.amitagarwal.applock.utils.ScreenMathUtils;
 public class LastRowLayout extends LinearLayout {
 
 
-    private Figure f1;
     private int screenWidth;
-    private int screenHeight;
-    private int headerHeight ;
+    private int passwordViewHeight;
 
-    private int buttonWidth;
-    private int buttonHEight;
+    private int buttonColumnWidth;
+    private int buttonRowHeight;
     public LastRowLayout(Context context,Figure f1,PasswordEvaluator passwordEvaluator) {
         super(context);
 
-        this.f1 = f1;
+        screenWidth = ScreenMathUtils.getWidthInPx(context) - ScreenMathUtils.dpToPx(10,context);
+        passwordViewHeight = ((PasswordScreen)passwordEvaluator.getPasswordBaseActivity()).passwordLLHeight;
 
-        headerHeight = ScreenMathUtils.dpToPx(20, context);
-        screenWidth = ActivityUtils.getWidthInPx(context);
-        screenHeight = ActivityUtils.getHeightInPx(context);
+        buttonRowHeight = (int)(passwordViewHeight /4.0);
+        buttonColumnWidth = (int)(screenWidth/3.0);
 
-        buttonHEight = (int)(screenHeight/3.0);
-        buttonWidth = (int)(screenWidth/3.0);
+        System.out.println(buttonRowHeight + " -----------");
 
-        LayoutParams lp = new LayoutParams(screenWidth,buttonHEight);
+        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, buttonRowHeight);
         setLayoutParams(lp);
         setOrientation(LinearLayout.HORIZONTAL);
         setBackgroundColor(Color.GRAY);
 
         //add buttons
         MyCancelButton cancelButton = new MyCancelButton(context,passwordEvaluator);
-        cancelButton.setParamsAndUpdateView(buttonWidth,buttonHEight);
+        cancelButton.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight);
 
         MyCustomButton button1 = new MyCustomButton(context,passwordEvaluator);
-        button1.setParamsAndUpdateView(buttonWidth,buttonHEight,f1);
+        button1.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight,f1);
 
         MyBackButton backButton = new MyBackButton(context,passwordEvaluator);
-        backButton.setParamsAndUpdateView(buttonWidth,buttonHEight);
+        backButton.setParamsAndUpdateView(buttonColumnWidth, buttonRowHeight);
 
         addView(cancelButton);
         addView(button1);
